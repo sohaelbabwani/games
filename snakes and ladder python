@@ -56,3 +56,5 @@ while True:
 
         # Print the player's current position on the board
         print(f"{player} is now on square {position}.")
+        
+#This implementation uses a dictionary to represent the board, where the keys are the squares and the values are the endpoints of the snakes or ladders. The roll_dice() function generates a random number between 1 and 6, and the players dictionary is used to keep track of each player's position on the board. The game loop loops through each player, rolls the dice, updates the player's position, checks for snakes or ladders, checks for a win, and updates the player's position on the board. The game continues until a player wins.
