@@ -1,0 +1,58 @@
+import random
+
+# Define the board as a dictionary where the keys are the squares and the values are the endpoints of the snakes or ladders
+board = {
+    2: 38,
+    7: 14,
+    8: 31,
+    15: 26,
+    21: 42,
+    28: 84,
+    36: 44,
+    51: 67,
+    71: 91,
+    78: 98,
+    87: 94,
+}
+
+# Define the number of squares on the board
+board_size = 100
+
+# Define the players and their positions on the board
+players = {'Player 1': 0, 'Player 2': 0}
+
+# Define the function to roll the dice
+def roll_dice():
+    return random.randint(1, 6)
+
+# Define the main game loop
+while True:
+    # Loop through each player
+    for player, position in players.items():
+        # Roll the dice
+        input(f"{player}, press Enter to roll the dice...")
+        dice_roll = roll_dice()
+        print(f"{player} rolled a {dice_roll}!")
+
+        # Update the player's position on the board
+        position += dice_roll
+
+        # Check if the player has landed on a snake or ladder
+        if position in board:
+            new_position = board[position]
+            if new_position > position:
+                print(f"{player} landed on a ladder! Climb up to square {new_position}!")
+            else:
+                print(f"{player} landed on a snake! Slide down to square {new_position}!")
+            position = new_position
+
+        # Check if the player has won the game
+        if position >= board_size:
+            print(f"{player} wins!")
+            exit()
+
+        # Update the player's position on the board
+        players[player] = position
+
+        # Print the player's current position on the board
+        print(f"{player} is now on square {position}.")
