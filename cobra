@@ -1,4 +1,4 @@
-# Cobra game
+# Cobra game in Python
 # Use ARROW KEYS to play the game, SPACE BAR for pause/resume and Esc Key to exit
 
 import curses
