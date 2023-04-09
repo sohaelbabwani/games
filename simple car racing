@@ -31,6 +31,7 @@ void gotoxy(int x, int y){
     SetConsoleCursorPosition(console, CursorPosition);  
 }  
 
+
 void setcursor(bool visible, DWORD size) {  
     if(size == 0)  
         size = 20;    
@@ -55,6 +56,7 @@ void drawBorder(){
 void genEnemy(int ind){  
     enemyX[ind] = 17 + rand()%(33);    
 }  
+
 void drawEnemy(int ind){  
     if( enemyFlag[ind] == true ){  
         gotoxy(enemyX[ind], enemyY[ind]);   cout<<"****";    
