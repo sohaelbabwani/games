@@ -1,5 +1,6 @@
-//This is a sample program to play tic tac toe 
+//This is a sample program to play tic, tac toe 
 // A random package is imported
+
 import random
 
 
