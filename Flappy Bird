@@ -1,0 +1,125 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace FlappyBird
+{
+    public class Game
+    {
+        public static void Main()
+        {
+            // Create a new game window
+            var gameWindow = new GameWindow();
+
+            // Start the game loop
+            while (gameWindow.IsOpen)
+            {
+                // Update the game state
+                gameWindow.Update();
+
+                // Draw the game state
+                gameWindow.Draw();
+            }
+        }
+    }
+
+    public class GameWindow : System.Windows.Forms.Form
+    {
+        private const int WINDOW_WIDTH = 800;
+        private const int WINDOW_HEIGHT = 600;
+
+        private Sprite bird;
+        private List<Sprite> pipes;
+
+        public GameWindow()
+        {
+            // Set the window size
+            Size = new Size(WINDOW_WIDTH, WINDOW_HEIGHT);
+
+            // Create the bird sprite
+            bird = new Sprite("bird.png");
+
+            // Create the pipes sprites
+            pipes = new List<Sprite>();
+            for (int i = 0; i < 10; i++)
+            {
+                pipes.Add(new Sprite("pipe.png"));
+            }
+
+            // Start the game loop
+            Start();
+        }
+
+        private void Start()
+        {
+            // Create a new game timer
+            var gameTimer = new System.Threading.Timer(Update, null, 0, 100);
+        }
+
+        private void Update(object sender, System.EventArgs e)
+        {
+            // Move the bird
+            bird.Position += new Point(0, -1);
+
+            // Check if the bird has hit a pipe
+            foreach (var pipe in pipes)
+            {
+                if (bird.Intersects(pipe))
+                {
+                    // Game over!
+                    Close();
+                }
+            }
+
+            // Draw the bird and the pipes
+            Draw();
+        }
+
+        private void Draw()
+        {
+            // Clear the screen
+            BackColor = System.Drawing.Color.White;
+
+            // Draw the bird
+            bird.Draw(this);
+
+            // Draw the pipes
+            foreach (var pipe in pipes)
+            {
+                pipe.Draw(this);
+            }
+        }
+    }
+
+    public class Sprite
+    {
+        private System.Drawing.Bitmap image;
+        private Point position;
+
+        public Sprite(string imagePath)
+        {
+            // Load the image
+            image = new System.Drawing.Bitmap(imagePath);
+
+            // Set the position to the center of the image
+            position = new Point(image.Width / 2, image.Height / 2);
+        }
+
+        public void Draw(System.Windows.Forms.Control control)
+        {
+            // Draw the image at the specified position
+            control.DrawBitmap(image, position, System.Drawing.GraphicsUnit.Pixel);
+        }
+
+        public bool Intersects(Sprite other)
+        {
+            // Check if the two sprites intersect
+            return position.X + image.Width > other.position.X &&
+                   position.X < other.position.X + other.image.Width &&
+                   position.Y + image.Height > other.position.Y &&
+                   position.Y < other.position.Y + other.image.Height;
+        }
+    }
+}
