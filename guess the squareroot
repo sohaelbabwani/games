@@ -1,4 +1,4 @@
-# Using the pow() function 
+# Using the pow() function in the program
 import math
 num = float(input(" Enter a number: "))
 sqRoot = math.pow(num, 0.5)
