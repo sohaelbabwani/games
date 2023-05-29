@@ -1,0 +1,89 @@
+import pygame
+
+# Initialize pygame
+pygame.init()
+
+# Create the screen
+screen = pygame.display.set_mode((640, 480))
+
+# Load the images
+mario_image = pygame.image.load("mario.png")
+background_image = pygame.image.load("background.png")
+
+# Create the sprites
+mario = pygame.sprite.Sprite()
+mario.image = mario_image
+mario.rect = mario_image.get_rect()
+
+# Create the background
+background = pygame.sprite.Sprite()
+background.image = background_image
+background.rect = background_image.get_rect()
+
+# Create the enemies
+enemy1 = pygame.sprite.Sprite()
+enemy1.image = pygame.image.load("enemy1.png")
+enemy1.rect = enemy1.image.get_rect()
+enemy1.rect.x = 100
+enemy1.rect.y = 100
+
+enemy2 = pygame.sprite.Sprite()
+enemy2.image = pygame.image.load("enemy2.png")
+enemy2.rect = enemy2.image.get_rect()
+enemy2.rect.x = 200
+enemy2.rect.y = 200
+
+# Create the groups
+all_sprites = pygame.sprite.Group()
+enemies = pygame.sprite.Group()
+
+# Add the sprites to the groups
+all_sprites.add(mario)
+all_sprites.add(background)
+all_sprites.add(enemy1)
+all_sprites.add(enemy2)
+enemies.add(enemy1)
+enemies.add(enemy2)
+
+# Create the clock
+clock = pygame.time.Clock()
+
+# Start the main loop
+running = True
+while running:
+    # Handle events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+
+        # Move the player
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_LEFT:
+                mario.rect.x -= 10
+            elif event.key == pygame.K_RIGHT:
+                mario.rect.x += 10
+            elif event.key == pygame.K_UP:
+                mario.rect.y -= 10
+            elif event.key == pygame.K_DOWN:
+                mario.rect.y += 10
+
+    # Update the sprites
+    all_sprites.update()
+
+    # Check for collisions
+    collisions = pygame.sprite.groupcollide(mario, enemies, False, False)
+    if collisions:
+        running = False
+
+    # Draw the screen
+    screen.blit(background.image, background.rect)
+    all_sprites.draw(screen)
+
+    # Flip the screen
+    pygame.display.flip()
+
+    # Limit the framerate to 60fps
+    clock.tick(60)
+
+# Quit pygame
+pygame.quit()
