@@ -1,5 +1,6 @@
 //This game is written in C programing language and easy also.
 
+//comments go here
 #include<iostream>  
 #include<conio.h>  
 #include<dos.h>   
