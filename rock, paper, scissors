@@ -1,5 +1,6 @@
 # rock, paper, scissors game in Python language in an easy way
 
+//comments go here
 import random
 
 while True:
