@@ -1,5 +1,6 @@
 # Cobra game in Python language over here
 # Use ARROW KEYS to play the game, SPACE BAR for pause/resume and Esc Key to exit
+# Code starts here
 
 import curses
 from curses import KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN
