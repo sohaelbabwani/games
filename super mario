@@ -1,6 +1,6 @@
 # Code starts here
 import pygame
-//comments go here
+
 # Initialize pygame
 pygame.init()
 
