@@ -1,5 +1,5 @@
 # This is one of the famous games that many know and many do not. The program is over here.
-//comments go here
+
 import random
 
 # Define the board as a dictionary where the keys are the squares and the values are the endpoints of the snakes or ladders
