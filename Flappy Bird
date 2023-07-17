@@ -1,5 +1,4 @@
 //dot net uses 'using' instead of import
-//code starts here
 
 using System;
 using System.Collections.Generic;
