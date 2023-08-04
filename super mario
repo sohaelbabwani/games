@@ -1,5 +1,6 @@
 # Code starts here
 //code starts here
+//dot net uses 'using' instead of import
 
 #Start
 import pygame
