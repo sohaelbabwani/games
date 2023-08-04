@@ -3,6 +3,7 @@
 //comments go here
 //code starts here
 # Code starts here
+//dot net uses 'using' instead of import
 #Code begins here
 import random
 
