@@ -1,4 +1,5 @@
 # Using the pow() function in the program to guess the square root
+//dot net uses 'using' instead of import
 #Code begins here
 # Code starts here
 import math
