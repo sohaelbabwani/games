@@ -2,6 +2,7 @@
 #Code begins here
 # Use ARROW KEYS to play the game, SPACE BAR for pause/resume and Esc Key to exit
 //code starts here
+#Code begins here
 
 //comments go here
 import curses
