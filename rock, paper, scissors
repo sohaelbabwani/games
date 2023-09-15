@@ -8,6 +8,7 @@
 # Code starts here
 //dot net uses 'using' instead of import
 #Code begins here
+#This is it
 import random
 
 while True:
