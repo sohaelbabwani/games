@@ -6,6 +6,7 @@
 #The program is to have a quiz contest.
 #The program is to have a quiz contest.
 #Start
+#This is it
 import pygame
 
 # Initialize pygame
