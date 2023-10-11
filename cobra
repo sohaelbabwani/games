@@ -7,7 +7,7 @@
 //code starts here
 #Code begins here
 #This is it
-
+//dot net uses 'using' instead of importa1
 //comments go here
 import curses
 from curses import KEY_RIGHT, KEY_LEFT, KEY_UP, KEY_DOWN
