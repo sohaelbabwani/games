@@ -1,5 +1,6 @@
 import random
 //dot net uses 'using' instead of importa1
+//dot net uses 'using' instead of importa1
 def game():
     number_to_guess = random.randint(1, 10)
     guess = None
